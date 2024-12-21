@@ -20,7 +20,7 @@
                             <td class='border-r p-2'>{{ $cat->created_at->format('F d, Y') }}</td>
                             <td class='p-2'>
                                 <a href="{{ route('cats.edit', $cat->id) }}" class='text-blue-700 text-sm'>Edit</a>
-                                <a href="" class='text-blue-700 text-sm'>Images</a>
+                                <a href="{{ route('cats.image.edit', $cat->id) }}" class='text-blue-700 text-sm'>Images</a>
                                 <a href="" class='text-red-700 text-sm'>Delete</a>
                             </td>
                         </tr>

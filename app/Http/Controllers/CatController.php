@@ -76,6 +76,8 @@ class CatController extends Controller
         return view('profile.my-cats.edit', compact('cat'));;
     }
 
+    
+
     /**
      * Update the specified resource in storage.
      */

@@ -61,7 +61,7 @@ $image = $cat->images()->inRandomOrder()->first();
         {{-- Description --}}
         <div class='lg:w-10/12 bg-white rounded shadow-sm flex flex-col items-center text-gray-500 p-2'>
             <h1 class='text-gray-700 font-bold text-2xl'>Detailed Description</h1>
-            <p>{{ $cat->description }}</p>
+            <p>{!! $cat->description !!}</p>
         </div>
     </div>
 </div>

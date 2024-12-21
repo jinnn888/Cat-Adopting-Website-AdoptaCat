@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatController;
+use App\Http\Controllers\CatImageController;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -17,6 +18,13 @@ Route::middleware(['auth'])->group(function() {
     Route::post('store-cats', [CatController::class, 'store'])->name('cats.store');
     Route::get('edit-cat/{cat}', [CatController::class, 'edit'])->name('cats.edit');
     Route::put('update-cat/{cat}', [CatController::class, 'update'])->name('cats.update');
+
+    Route::get('image-edit-cat/{cat}', [CatImageController::class, 'edit'])->name('cats.image.edit');
+    Route::post('image-update-cat/{cat}', [CatImageController::class, 'update'])->name('cats.image.update');
+
+
+    
+
 });
 
 Route::get('/cat/{cat}', [HomeController::class, 'showCat'])->name('home.cats.show');
