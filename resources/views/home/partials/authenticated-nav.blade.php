@@ -36,7 +36,7 @@
                             {{ __('My Cats') }}
                         </x-dropdown-link>
 
-                        <x-dropdown-link :href="route('cats.create')">
+                        <x-dropdown-link :href="route('favourites.index')">
                             {{ __('My Favourites') }}
                         </x-dropdown-link>
                       
@@ -80,7 +80,7 @@
                             {{ __('My Cats') }}
                         </x-responsive-nav-link>
 
-                        <x-responsive-nav-link :href="route('cats.create')">
+                        <x-responsive-nav-link :href="route('favourites.index')">
                             {{ __('My Favourites') }}
                         </x-responsive-nav-link>
 

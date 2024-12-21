@@ -57,7 +57,9 @@ class CatImageController extends Controller
             }
 
             $image = CatImage::find($id);
-            $image->update(['position' => $position]);
+            if ($image) {
+                $image->update(['position' => $position]);
+            }
         }
 
         }

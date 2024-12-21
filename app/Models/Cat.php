@@ -14,4 +14,8 @@ class Cat extends Model
     public function images() {
         return $this->hasMany(CatImage::class);
     }
+
+    public function favoriter() {
+        return $this->belongsToMany(User::class, 'favourites');
+    }
 }

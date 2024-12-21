@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\CatImageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FavouriteController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -22,8 +23,10 @@ Route::middleware(['auth'])->group(function() {
     Route::get('image-edit-cat/{cat}', [CatImageController::class, 'edit'])->name('cats.image.edit');
     Route::post('image-update-cat/{cat}', [CatImageController::class, 'update'])->name('cats.image.update');
 
+    // Favourite
 
-    
+    Route::resource('favourites', FavouriteController::class)->except('destroy');
+    Route::post('favourites/{id}', [FavouriteController::class, 'destroy'])->name('favourites.destroy');
 
 });
 

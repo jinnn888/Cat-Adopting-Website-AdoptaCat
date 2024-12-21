@@ -50,4 +50,8 @@ class User extends Authenticatable
         return $this->hasMany(Cat::class);
     }
 
+    public function favourites() {
+        return $this->belongsToMany(Cat::class, 'favourites');
+    }
+
 }
