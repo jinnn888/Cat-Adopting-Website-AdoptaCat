@@ -3,7 +3,9 @@
 ])
 <div class='w-fit p-2 rounded bg-gray-50 border'>
     <div class='flex flex-col space-y-4'>
-        <img class='object-cover w-[250px] md:w-[300px] md:h-[250px]' src="{{ Storage::url($cat->images()->first()->image) }}" alt="cat">
+        <img class='object-cover w-[250px] md:w-[300px] md:h-[250px]' 
+        src="{{ $cat->images->isNotEmpty() ? Storage::url($cat->images->first()->image): '' }}" 
+        alt="cat">
 
         {{-- <i class="fas fa-heart text-gray-500 text-end cursor-pointer p-2"></i> --}}
 

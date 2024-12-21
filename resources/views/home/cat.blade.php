@@ -1,8 +1,10 @@
 @extends('welcome')
 @section('content')
-@php
-$image = $cat->images()->inRandomOrder()->first();
-@endphp
+{{-- @php
+
+$image = $cat->images()->first();
+
+@endphp --}}
 <div class='bg-gray-50'>
     <div class='p-6 flex flex-col space-y-4'>
         <h2 class='mb-4 text-4xl font-bold text-gray-700'>{{ $cat->name }}</h2>
@@ -11,15 +13,15 @@ $image = $cat->images()->inRandomOrder()->first();
             <div class="slider-wrapper flex flex-col items-center lg:flex-row space-y-4 lg:space-x-4">
                 <div class='flex flex-col items-center p-4 space-y-2'>
                     {{-- Main Slider --}}
-                    <div class="main-slider w-[300px] lg:w-[500px]">
+                    <div class="main-slider w-[250px] lg:w-[500px]">
                         @foreach($cat->images as $image)
                         <div>
-                            <img class="w-[500px] h-[500px] object-cover rounded-lg lg:mx-auto" src="{{ Storage::url($image->image) }}" alt="cat image">
+                            <img class="w-[500px] h-[400px] object-contain rounded-lg lg:mx-auto" src="{{ Storage::url($image->image) }}" alt="cat image">
                         </div>
                         @endforeach
                     </div>
                     {{-- Thumbnail Slider --}}
-                    <div class="thumbnail-slider w-[300px]  lg:w-[500px] space-x-2">
+                    <div class="thumbnail-slider w-[250px] lg:w-[300px] lg:w-[500px] space-x-2">
                         @foreach($cat->images as $image)
                         <div>
                             <img class="w-[300px] h-[100px] lg:w-[500px] object-cover rounded-md border-2 border-gray-300" src="{{ Storage::url($image->image) }}" alt="cat thumbnail">
@@ -30,7 +32,10 @@ $image = $cat->images()->inRandomOrder()->first();
             </div>
             {{-- Cat Details --}}
             <div class='bg-white rounded shadow-sm flex flex-col items-center text-gray-500 p-3 lg:border lg:w-[300px] lg:h-fit'>
-                <h2 class='font-bold text-2xl'>₱{{ $cat->adoption_fee }}</h2>
+                <div class='font-bold text-2xl flex flex-col items-center'>
+                	<span>Adoption Fee</span>
+                	₱{{ $cat->adoption_fee }}
+                </div>
                 <hr class=' w-full my-2'>
                 <div class='flex flex-row justify-between w-full p-2'>
                     <span>Breed </span>

@@ -64,7 +64,7 @@
                         <x-text-input id="adoption_fee" step='0.01' class="block mt-1 w-full" type="number" name="adoption_fee" :value="old('adoption_fee', $cat->adoption_fee)" />
                         <x-input-error :messages="$errors->get('adoption_fee')" class="mt-2" />
                     </div>
-                    <x-primary-button type='submit'>Submit</x-primary-button>
+                    <x-primary-button type='submit'>Confirm Changes</x-primary-button>
                 </form>
             </div>
         </div>

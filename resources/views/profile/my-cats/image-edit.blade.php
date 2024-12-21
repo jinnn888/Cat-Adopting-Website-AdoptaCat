@@ -9,20 +9,24 @@
                 @method('POST')
                 <!-- Delete images section -->
                 <div class='flex flex-col space-y-4'>
-                    <table>
-                        <thead>
+                    <table class='p-4'>
+                        <thead class=''>
                             <th class='font-light text-gray-700 text-sm text-left'>Delete</th>
+                            <th class='font-light text-gray-700 text-sm'>Change Order</th>
                         </thead>
                         <tbody>
-                            @foreach ($cat->images as $image)
+                            @foreach ($images as $image)
                             <tr>
-                                <td class='flex flex-row justify-between items-center'>
-                                    <input type="checkbox" name='selected_images[]' value='{{ $image->id }}'>
-                                    <div>
-	                                    <img class='w-[200px] h-[200px] object-contain' src="{{ Storage::url($image->image) }}" alt="">
-     	                               <x-text-input type='number'/>
-                                    </div>
+                                <td class='rounded flex flex-row justify-between items-center'>
+                                    <input class='rounded focus:ring-2  focus:ring-blue-500' type="checkbox" name='selected_images[]' value='{{ $image->id }}'>
                                 </td>
+								<td>
+									
+                                    <div>
+	                                    <img class='w-[200px] h-[200px] mb-2 object-contain flex flex-col space-y-2' src="{{ Storage::url($image->image) }}" alt="">
+     	                               <x-text-input type='number' name='position[{{ $image->id }}]' :value='$image->position'/>
+                                    </div>
+								</td>                                
                             </tr>
                             @endforeach
                         </tbody>
@@ -33,7 +37,7 @@
                     <x-input-label>Add Images</x-input-label>
                     <input type="file" multiple name='images[]'>
                 </div>
-                <x-primary-button type="submit" class='w-fit'>Publish changes</x-primary-button>
+                <x-primary-button type="submit" class='mt-4 w-fit'>save changes</x-primary-button>
             </form>
         </div>
     </div>

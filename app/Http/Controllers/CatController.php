@@ -51,7 +51,8 @@ class CatController extends Controller
 
                 CatImage::create([
                     'image' => $path,
-                    'cat_id' => $cat->id
+                    'cat_id' => $cat->id,
+                    'position' => $cat->images()->max('position') + 1
                 ]);                
             }
         }
