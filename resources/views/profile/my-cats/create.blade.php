@@ -54,7 +54,7 @@ $table->timestamps();
                         @endphp
                         <div>
                             <x-input-label for="gender" :value="__('Gender')" />
-                            <x-select :options="$genders" id="gender" name="gender" />
+                            <x-select :options="$genders" id="gender" name="gender" :selected="old('gender')" />
                             <x-input-error :messages="$errors->get('gender')" class="mt-2" />
                         </div>
                     </div>
@@ -83,8 +83,15 @@ $table->timestamps();
                     </div>
                     <div class="mb-3">
                         <x-input-label for="images" :value="__('Images')" />
-                        <x-text-input id="images" class="block mt-1 w-full" type="file" name="images[]" multiple accept=".jpg,.jpeg,.png" />
-                        <x-input-error :messages="$errors->get('images.*')" class="mt-2" />
+                        <x-text-input id="images" class="block mt-1 w-full" type="file" name="images[]" multiple accept=".jpg,.jpeg,.png"/>
+
+                        <x-input-error :messages="$errors->get('images')" class="mt-2" />
+
+                        @foreach ($errors->get('images.*') as $fieldErrors)
+                            @foreach ($fieldErrors as $error)
+                                <x-input-error :messages="$error" class="mt-2" />
+                            @endforeach
+                        @endforeach
                     </div>
                     <x-primary-button type='submit'>Submit</x-primary-button>
                 </form>

@@ -57,7 +57,7 @@ class CatController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', 'New cat to be adopted saved!');
+        return redirect()->route('cats.index')->with('success', 'New cat to be adopted saved!');
 
     }
     
