@@ -8,6 +8,11 @@ export default defineConfig({
             hmr: {
                 host: '192.168.8.101', // Ensure HMR uses the same host
             },
+            server: {
+                  watch: {
+                    ignored: ['**/node_modules/**', '**/vendor/**'],
+                  },
+                },
         },
     plugins: [
         laravel({

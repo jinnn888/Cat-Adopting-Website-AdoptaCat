@@ -25,7 +25,24 @@
                     {{-- Breed --}}
                     <div>
                         <x-input-label for="breed" :value="__('Breed')" />
-                        <x-text-input id="breed" class="block mt-1 w-full" type="text" name="breed" :value="old('breed', $cat->breed)"  />
+                        {{-- <x-text-input id="breed" class="block mt-1 w-full" type="text" name="breed" :value="old('breed')"  /> --}}
+                       @php
+                            $breeds = [
+                                'all',
+                                'siamese',
+                                'persian',
+                                'maine Coon',
+                                'ragdoll',
+                                'bengal',
+                                'sphynx',
+                                'british Shorthair',
+                                'abyssinian',
+                                'birman',
+                                'oriental Shorthair',
+                            ];
+                        @endphp
+                         <x-select class='w-full' :options="$breeds" id="breed" name="breed" :selected="old('breed')" />
+
                         <x-input-error :messages="$errors->get('breed')" class="mt-2" />
                     </div>
                     {{-- Age --}}

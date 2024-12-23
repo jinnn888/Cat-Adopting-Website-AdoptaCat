@@ -13,9 +13,10 @@ class CatController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {       
         $cats = auth()->user()->cats()->paginate(10);
+        
         return view('profile.my-cats.index', compact('cats'));
     }
 

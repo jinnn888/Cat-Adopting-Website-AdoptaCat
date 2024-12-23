@@ -2,10 +2,10 @@
 'cat' => null,
 'favourite' => false
 ])
-<div class='w-[250px] rounded bg-white border'>
+<div class='w-[230px]  h-[150px] rounded bg-white border'>
     <!-- Fixed width instead of w-fit -->
-    <div class='flex flex-col space-y-4'>
-        <img class='object-cover w-full h-[250px]' src="{{ $cat->images->isNotEmpty() ? Storage::url($cat->images->first()->image): '' }}" alt="cat">
+    <div class='flex flex-col space-y-2'>
+        <img class='object-cover h-[200px] w-[200px]' src="{{ $cat->images->isNotEmpty() ? Storage::url($cat->images->first()->image): '' }}" alt="cat">
         <div class='flex flex-col space-y-2 text-gray-800 text-sm p-3'>
             <div class='flex flex-col space-y-4'>
                 <span class='text-lg font-medium md:text-xl'>{{ $cat ? $cat->breed : '' }} </span>
