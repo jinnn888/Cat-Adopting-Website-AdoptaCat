@@ -40,7 +40,7 @@
             </div>
             <div class="space-x-6">
                 <a href="/login" class="cursor-pointer p-2 bg-gray-800 text-white shadow-sm">Login</a>
-                <a href="/register" class="cursor-pointer">Sign Up</a>
+                <a href="{{ route('register.options') }}" class="cursor-pointer">Sign Up</a>
             </div>
         </div>
     </nav>
